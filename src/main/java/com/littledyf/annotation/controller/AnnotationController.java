@@ -1,5 +1,6 @@
 package com.littledyf.annotation.controller;
 
+import com.littledyf.annotation.dto.EnumTestDto;
 import com.littledyf.annotation.dto.NumTest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +24,12 @@ public class AnnotationController {
     @PostMapping(value = "/value")
     public String testValue(@RequestBody @Validated NumTest numTest) {
         System.err.println(numTest.getNum());
+        return "success";
+    }
+
+    @PostMapping(value = "/enum")
+    public String testEnum(@RequestBody @Validated EnumTestDto enumTestDto){
+        System.err.println(enumTestDto);
         return "success";
     }
 }
